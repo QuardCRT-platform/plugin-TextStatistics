@@ -1,3 +1,3 @@
-# Plugin template
+# Plugin Text Statistics
 
-Plugin template repository for QuardCRT.
+Plugin Text Statistics repository for QuardCRT.
