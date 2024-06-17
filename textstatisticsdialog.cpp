@@ -11,10 +11,15 @@ TextStatisticsDialog::TextStatisticsDialog(
 
     ui->textEdit->setPlainText(selectedText);
     ui->textEdit->setReadOnly(true);
+    ui->textEdit->setWordWrapMode(QTextOption::NoWrap);
     ui->lineEditCC->setText(cc);
+    ui->lineEditCC->setReadOnly(true);
     ui->lineEditWC->setText(wc);
+    ui->lineEditWC->setReadOnly(true);
     ui->lineEditLC->setText(lc);
+    ui->lineEditLC->setReadOnly(true);
     ui->lineEditSZ->setText(sz);
+    ui->lineEditSZ->setReadOnly(true);
     connect(ui->pushButtonClose, &QPushButton::clicked, [=](){
         accept();
     });
