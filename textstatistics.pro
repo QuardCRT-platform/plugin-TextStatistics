@@ -10,7 +10,9 @@ HEADERS = plugininterface/plugininterface.h \
 SOURCES = plugininterface/plugininterface.cpp \
         textstatistics.cpp \
         textstatisticsdialog.cpp
-
+TRANSLATIONS = textstatistics_zh_CN.ts \
+        textstatistics_en_US.ts
+RESOURCES = textstatistics.qrc
 TARGET = $$qtLibraryTarget(textstatistics)
 
 win32:{

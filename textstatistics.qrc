@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/lang">
+        <file>textstatistics_zh_CN.qm</file>
+        <file>textstatistics_en_US.qm</file>
+    </qresource>
+</RCC>

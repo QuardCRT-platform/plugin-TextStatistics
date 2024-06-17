@@ -10,6 +10,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QRegularExpression>
+#include <QTranslator>
 #include <QDebug>
 
 #include "textstatisticsdialog.h"
@@ -49,4 +50,30 @@ QList<QAction *> TextStatistics::terminalContextAction(QString selectedText, QSt
     });
 
     return actions;
+}
+
+void TextStatistics::setLanguage(const QLocale &language,QApplication *app) {
+    static QTranslator *qtTranslator = nullptr;
+    if(qtTranslator == nullptr) {
+        qtTranslator = new QTranslator(app);
+    } else {
+        app->removeTranslator(qtTranslator);
+        delete qtTranslator;
+        qtTranslator = new QTranslator(app);
+    }
+    switch(language.language()) {
+    case QLocale::Chinese:
+        if(qtTranslator->load(":/lang/textstatistics_zh_CN.qm"))
+            app->installTranslator(qtTranslator);
+        break;
+    default:
+    case QLocale::English:
+        if(qtTranslator->load(":/lang/textstatistics_en_US.qm"))
+            app->installTranslator(qtTranslator);
+        break;
+    }
+}
+
+void TextStatistics::retranslateUi() {
+    m_action->setText(tr("Text Statistics"));
 }
