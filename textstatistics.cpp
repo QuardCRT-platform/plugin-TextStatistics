@@ -21,7 +21,10 @@ int TextStatistics::init(QMap<QString, QString> params, QWidget *parent)
 
     m_action = new QAction(tr("Text Statistics"), parent);
     connect(m_action, &QAction::triggered, [&,parent](){
-        QMessageBox::information(parent, tr("Text Statistics"), PLUGIN_VERSION);
+        QMessageBox::information(parent, tr("Text Statistics"), 
+            tr(
+                "Text Statistics\nThis Plugin is used to view the statistics of the selected text.\nPlease select text in the terminal and right-click to view the text statistics."
+            ));
     });
 
     return 0;

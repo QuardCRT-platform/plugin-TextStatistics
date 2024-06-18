@@ -1,3 +1,4 @@
+#include <QCryptographicHash>
 #include "textstatisticsdialog.h"
 #include "ui_textstatisticsdialog.h"
 
@@ -20,10 +21,17 @@ TextStatisticsDialog::TextStatisticsDialog(
     ui->lineEditLC->setReadOnly(true);
     ui->lineEditSZ->setText(sz);
     ui->lineEditSZ->setReadOnly(true);
+    ui->lineEditMD5->setText(QCryptographicHash::hash(selectedText.toUtf8(), QCryptographicHash::Md5).toHex());
+    ui->lineEditMD5->setReadOnly(true);
+    ui->lineEditSHA1->setText(QCryptographicHash::hash(selectedText.toUtf8(), QCryptographicHash::Sha1).toHex());
+    ui->lineEditSHA1->setReadOnly(true);
+    ui->lineEditSHA256->setText(QCryptographicHash::hash(selectedText.toUtf8(), QCryptographicHash::Sha256).toHex());
+    ui->lineEditSHA256->setReadOnly(true);
+    ui->lineEditSHA512->setText(QCryptographicHash::hash(selectedText.toUtf8(), QCryptographicHash::Sha512).toHex());
+    ui->lineEditSHA512->setReadOnly(true);
     connect(ui->pushButtonClose, &QPushButton::clicked, [=](){
         accept();
     });
-    resize(600, 400);
 }
 
 TextStatisticsDialog::~TextStatisticsDialog()
