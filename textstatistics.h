@@ -4,7 +4,7 @@
 #include "plugininterface.h"
 
 #define PLUGIN_NAME    "Text Statistics"
-#define PLUGIN_VERSION "0.0.1"
+#define PLUGIN_VERSION "0.0.2"
 #define PLUGIN_WEBSITE "https://github.com/QuardCRT-platform/plugin-TextStatistics"
 
 class TextStatistics : public PluginInterface
